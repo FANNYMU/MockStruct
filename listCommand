@@ -1,0 +1,17 @@
+# Generate and save to file
+gen -f examples/interface.ts -i UserProfile --out ./output/UserProfile-mock.json
+
+# Generate multiple objects and save
+gen -f examples/interface.ts -i UserProfile -c 10 --out ./data/UserProfiles.json
+
+# Generate with seed and save in compact format
+gen -f examples/interface.ts -i UserProfile -c 5 -s 12345 -o compact --out ./mocks/UserProfile-data.json
+
+# Create nested directory structure
+gen -f examples/interface.ts -i Product --out ./output/products/mock-data.json
+
+# Legacy command with file output
+ms --interface examples/interface.ts --name UserProfile --out ./legacy-output.json
+
+# Still works without file output (console)
+gen -f examples/interface.ts -i UserProfile -c 3

@@ -1,0 +1,16 @@
+{
+  "name": "MockStruct",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "npx tsc --outDir dist"
+  },
+  "dependencies": {
+    "@faker-js/faker": "^9.9.0",
+    "@types/node": "^24.0.14",
+    "commander": "^14.0.0",
+    "ts-morph": "^26.0.0",
+    "typescript": "^5.8.3"
+  }
+}
