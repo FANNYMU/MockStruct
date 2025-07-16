@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "build": "npx tsc --outDir dist",
+    "build:pkg": "yarn build && npx terser dist/src/cli.js -c -m -o dist/src/cli.min.js && npx pkg dist/src/cli.min.js --targets node16-linux-x64",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage"
