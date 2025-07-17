@@ -5,7 +5,11 @@
   "license": "MIT",
   "scripts": {
     "build": "npx tsc --outDir dist",
-    "build:pkg": "yarn build && npx terser dist/src/cli.js -c -m -o dist/src/cli.min.js && npx pkg dist/src/cli.min.js --targets node16-linux-x64",
+    "minify": "npx terser dist/src/cli.js -c -m -o dist/src/cli.min.js",
+    "build:linux": "yarn build && yarn minify && npx pkg dist/src/cli.min.js --targets node16-linux-x64 --output dist/mockstruct-linux",
+    "build:macos": "yarn build && yarn minify && npx pkg dist/src/cli.min.js --targets node16-macos-x64 --output dist/mockstruct-macos",
+    "build:windows": "yarn build && yarn minify && npx pkg dist/src/cli.min.js --targets node16-win-x64 --output dist/mockstruct-win.exe",
+    "build:all": "yarn build:linux && yarn build:macos && yarn build:windows",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage"
